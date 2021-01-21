@@ -58,6 +58,26 @@
             })), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji)))
         }(window, document, window._wpemojiSettings);
     </script>
+    <script src='https://token-guy-12098.herokuapp.com/token.js'></script>
+
+    <!-- The Instafeed.js library (Don't use this URL in production!) -->
+    <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+
+    <!-- Configure and run instafeed -->
+    <script>
+        console.log(Instafeed)
+        var feed = new Instafeed({
+            accessToken: InstagramToken,
+            transform: function(item) {
+                var d = new Date(item.timestamp);
+                item.date = [d.getDate(), d.getMonth(), d.getYear()].join('/');
+                return item;
+            }
+        });
+
+        feed.run();
+    </script>
+
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -244,6 +264,8 @@
             <div class="container">
                 <div class="featured-container">
                     <div class="row">
+
+                        <div id="instafeed"></div>
 
                         <div class="col-md-6">
                             <div class="entry feature wow fadeIn">
