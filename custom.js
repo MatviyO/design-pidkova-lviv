@@ -12,5 +12,5 @@ $(document).ready(function() {
         template: '<div class="gallery"> <a href="{{image}}" ><img src="{{image}}" /> </a></div>'
     });
 
-    feed.run();
+    userFeed.run();
 })
